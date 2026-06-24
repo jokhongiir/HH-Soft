@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Header {
+  width: 100%;
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 14px 0px;
+}
+
+.Header-Container {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 0px;
+}
+
+.Header-Logo img {
+  width: 170px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.Navbar a {
+  text-decoration: none;
+  color: #d9d9d9;
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.Navbar a:hover {
+  color: #7c3aed;
+}
+
+.Navbar a::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #7c3aed;
+  transition: 0.3s ease;
+}
+
+.Navbar a:hover::after {
+  width: 100%;
+}
+
+.Navbar .active {
+  color: #7c3aed;
+}
+
+.Navbar .active::after {
+  width: 100%;
+}
+
+.Header-Right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.Header-Social-Media {
+  display: flex;
+  align-items: center;
+}
+
+.social {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: white;
+
+  margin-left: -10px;
+
+  border: 3px solid #1a1a1a;
+
+  transition: 0.3s ease;
+}
+
+.social:hover {
+  transform: translateY(-5px);
+}
+
+.vk {
+  background: linear-gradient(135deg, #4c75a3, #5b86b7);
+}
+
+.youtube {
+  background: linear-gradient(135deg, #ff0000, #ff3c3c);
+}
+
+.telegram {
+  background: linear-gradient(135deg, #229ed9, #33b5f5);
+}
+
+.Phone {
+  text-decoration: none;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+
+  transition: 0.3s ease;
+}
+
+.Phone:hover {
+  color: #7c3aed;
+}
+
+@media (max-width: 1200px) {
+  .Navbar {
+    gap: 30px;
+  }
+
+  .Navbar a {
+    font-size: 16px;
+  }
+
+  .Phone {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 992px) {
+  .Navbar {
+    display: none;
+  }
+
+  .Header-Container {
+    justify-content: space-between;
+  }
+
+  .Header-Logo img {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Header-Container {
+    padding: 0 20px;
+  }
+
+  .social {
+    width: 45px;
+    height: 45px;
+  }
+
+  .Phone {
+    display: none;
+  }
+
+  .Header-Logo img {
+    width: 180px;
+  }
+}
