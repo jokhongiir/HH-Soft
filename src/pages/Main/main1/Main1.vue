@@ -34,11 +34,23 @@ import "./Main1.css";
         <div class="Glow Glow3"></div>
 
         <div class="LaptopWrapper">
-          <!-- VIDEO -->
-          <video class="LaptopVideo" autoplay muted loop playsinline height="280px">
-            <source :src="Video" type="video/mp4" />
-            Ваш браузер не поддерживает видео.
-          </video>
+          <!-- YOUTUBE VIDEO -->
+          <iframe
+            class="LaptopVideo"
+            src="https://www.youtube.com/embed/dJXEuYKqFv4?autoplay=1&mute=1&loop=1&playlist=dJXEuYKqFv4&controls=0&rel=0"
+            title="HH SOFT Video"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
 
           <!-- LAPTOP FRAME -->
           <img :src="laptop" alt="HH SOFT Laptop" class="LaptopFrame" />
