@@ -1,21 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
-#Main1 {
-  width: 100%;
-  min-height: calc(100vh - 95px);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: #050816;
+  overflow-x: hidden;
+}
+
+/* ===================================
+MAIN SECTION
+=================================== */
+
+#Main1 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  margin-top: -95px;
   padding-top: 95px;
 
-  position: relative;
+  display: flex;
+  align-items: center;
+
   overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(139, 92, 246, 0.15),
-      transparent 35%
-    ),
-    linear-gradient(135deg, #000000 0%, #03051a 40%, #090027 100%);
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(4, 5, 29, 0.9)),
+    url("../../../assets/main-backround.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #Main1::before {
@@ -23,8 +47,30 @@
 
   position: absolute;
 
-  top: -200px;
-  left: -200px;
+  top: -250px;
+  left: -250px;
+
+  width: 550px;
+  height: 550px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.25),
+    transparent 70%
+  );
+
+  filter: blur(100px);
+}
+
+#Main1::after {
+  content: "";
+
+  position: absolute;
+
+  right: -250px;
+  bottom: -250px;
 
   width: 500px;
   height: 500px;
@@ -33,119 +79,301 @@
 
   background: radial-gradient(
     circle,
-    rgba(140, 82, 255, 0.35),
+    rgba(96, 165, 250, 0.18),
     transparent 70%
   );
 
-  filter: blur(80px);
+  filter: blur(100px);
 }
+
+/* ===================================
+CONTAINER
+=================================== */
 
 .Main1-Container {
   width: 100%;
   max-width: 1400px;
 
   margin: 0 auto;
-
   padding: 60px 40px 80px;
 
   display: grid;
-  grid-template-columns:
-    minmax(500px, 650px)
-    minmax(500px, 700px);
+  grid-template-columns: 1fr 1fr;
 
   align-items: center;
+  justify-items: center;
 
-  gap: 60px;
+  gap: 80px;
+
+  position: relative;
+  z-index: 10;
+}
+
+/* ===================================
+CONTENT
+=================================== */
+
+.Main1-Content {
+  width: 100%;
+  max-width: 620px;
 }
 
 .Main1-Content h1 {
-  color: white;
+  color: #fff;
 
-  font-size: 72px;
-  line-height: 1.1;
+  font-size: clamp(42px, 5vw, 68px);
 
   font-weight: 800;
+  line-height: 1.05;
 
-  margin-bottom: 35px;
+  letter-spacing: -2px;
+
+  margin-bottom: 25px;
 }
 
 .Main1-Content p {
-  color: #c5c5c5;
+  color: rgba(255, 255, 255, 0.75);
 
-  font-size: 20px;
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 1.9;
 
-  max-width: 600px;
+  max-width: 520px;
 
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
+
+/* ===================================
+BUTTONS
+=================================== */
 
 .Main1-Buttons {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 16px;
 }
 
 .PrimaryBtn,
 .SecondaryBtn {
+  height: 58px;
+
+  padding: 0 32px;
+
   border: none;
   cursor: pointer;
 
-  height: 65px;
-  padding: 0 35px;
-
   border-radius: 14px;
 
-  color: white;
-
-  font-size: 17px;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
   font-weight: 700;
 
   transition: 0.35s ease;
 }
 
 .PrimaryBtn {
+  color: #fff;
+
   background: linear-gradient(135deg, #8b5cf6, #6d28d9);
 
-  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.35);
+}
+
+.PrimaryBtn:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 25px 50px rgba(139, 92, 246, 0.5);
 }
 
 .SecondaryBtn {
-  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
 }
 
-.PrimaryBtn:hover,
 .SecondaryBtn:hover {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-5px);
+
+  background: rgba(255, 255, 255, 0.14);
 }
+
+/* ===================================
+LAPTOP SECTION
+=================================== */
 
 .Main1-Image {
   position: relative;
+
+  width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Main1-Image img {
-  width: 100%;
-  max-width: 750px;
+/* ==========================
+LAPTOP WRAPPER
+========================== */
 
+.LaptopWrapper {
   position: relative;
-  z-index: 5;
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10;
 
   animation: float 6s ease-in-out infinite;
+  transition: transform 0.4s ease;
 }
+
+.LaptopWrapper:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* ==========================
+LAPTOP IMAGE
+========================== */
+
+.LaptopFrame {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 3;
+
+  filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.55));
+}
+
+/* ==========================
+VIDEO INSIDE SCREEN
+========================== */
+
+.LaptopVideo {
+  position: absolute;
+
+  /* ekran joylashuvi */
+  top: 5.8%;
+  left: 13.6%;
+
+  /* ekran o'lchami */
+  width: 72.8%;
+  height: 67.2%;
+
+  border: none;
+  border-radius: 10px;
+
+  object-fit: cover;
+  background: #000;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================
+GLOW EFFECT
+========================== */
+
+.LaptopWrapper::before {
+  content: "";
+
+  position: absolute;
+  inset: 20%;
+
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.35),
+    transparent 70%
+  );
+
+  filter: blur(80px);
+
+  z-index: 1;
+}
+
+/* ==========================
+TABLET
+========================== */
+
+@media (max-width: 992px) {
+  .LaptopWrapper {
+    max-width: 700px;
+  }
+
+  .LaptopVideo {
+    top: 5.8%;
+    left: 13.7%;
+    width: 72.7%;
+    height: 67.1%;
+  }
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media (max-width: 576px) {
+  .LaptopWrapper {
+    max-width: 100%;
+  }
+
+  .LaptopVideo {
+    top: 5.7%;
+    left: 13.8%;
+
+    width: 72.5%;
+    height: 66.8%;
+
+    border-radius: 5px;
+  }
+}
+
+/* ==========================
+FLOAT ANIMATION
+========================== */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+/* ===================================
+GLOW EFFECTS
+=================================== */
 
 .Glow {
   position: absolute;
+
   border-radius: 50%;
 
-  filter: blur(70px);
+  filter: blur(80px);
+
+  opacity: 0.8;
 }
 
 .Glow1 {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
 
   background: #8b5cf6;
 
@@ -159,8 +387,8 @@
 
   background: #60a5fa;
 
-  right: 0;
-  bottom: 80px;
+  right: 20px;
+  bottom: 60px;
 }
 
 .Glow3 {
@@ -169,9 +397,13 @@
 
   background: #d946ef;
 
-  top: 50px;
+  top: 40px;
   right: 100px;
 }
+
+/* ===================================
+ANIMATION
+=================================== */
 
 @keyframes float {
   0% {
@@ -179,58 +411,116 @@
   }
 
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-18px);
   }
 
   100% {
     transform: translateY(0);
   }
 }
-@media (max-width: 1280px) {
+
+.LaptopWrapper {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===================================
+1400px
+=================================== */
+
+@media (max-width: 1400px) {
   .Main1-Container {
     max-width: 1200px;
-    gap: 40px;
+  }
+}
+
+/* ===================================
+1200px
+=================================== */
+
+@media (max-width: 1200px) {
+  .Main1-Container {
+    gap: 50px;
   }
 
   .Main1-Content h1 {
-    font-size: 58px;
-  }
-
-  .Main1-Image img {
-    max-width: 620px;
+    font-size: 56px;
   }
 }
+
+/* ===================================
+992px
+=================================== */
 
 @media (max-width: 992px) {
   .Main1-Container {
     grid-template-columns: 1fr;
+
     text-align: center;
+
+    gap: 40px;
+
+    padding: 40px 30px 80px;
+  }
+
+  .Main1-Content {
+    max-width: 700px;
+  }
+
+  .Main1-Content p {
+    margin: 0 auto 35px;
   }
 
   .Main1-Buttons {
     justify-content: center;
   }
 
-  .Main1-Content h1 {
-    font-size: 50px;
-  }
-
-  .Main1-Content p {
-    margin: auto;
-    margin-bottom: 40px;
+  .LaptopWrapper {
+    max-width: 700px;
   }
 }
 
-@media (max-width: 576px) {
+/* ===================================
+768px
+=================================== */
+
+@media (max-width: 768px) {
   .Main1-Content h1 {
-    font-size: 38px;
+    font-size: 44px;
   }
 
   .Main1-Content p {
     font-size: 16px;
   }
 
+  .LaptopWrapper {
+    max-width: 100%;
+  }
+}
+
+/* ===================================
+576px
+=================================== */
+
+@media (max-width: 576px) {
+  .Main1-Container {
+    padding: 30px 20px 60px;
+  }
+
+  .Main1-Content h1 {
+    font-size: 34px;
+  }
+
   .Main1-Buttons {
     flex-direction: column;
+  }
+
+  .PrimaryBtn,
+  .SecondaryBtn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .LaptopVideo {
+    border-radius: 6px;
   }
 }
