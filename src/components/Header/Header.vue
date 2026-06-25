@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import { Icon } from "@iconify/vue";
+
 import "./Header.css";
 import Logo from "../../assets/HH-Soft-Logo.png";
 
@@ -13,36 +15,40 @@ const toggleMenu = () => {
 <template>
   <header class="Header">
     <div class="Header-Container">
+      <!-- Logo -->
       <div class="Header-Logo">
         <img :src="Logo" alt="HH-Soft" />
       </div>
 
+      <!-- Navigation -->
       <nav class="Navbar">
         <a href="#">BIM-контент</a>
-        <a href="#" class="active">Сопровождение BIM проектов</a>
+        <a href="#">Сопровождение BIM проектов</a>
         <a href="#">Обучение</a>
         <a href="#">Контакты</a>
       </nav>
 
+      <!-- Right Side -->
       <div class="Header-Right">
+        <!-- Social Media -->
         <div class="Header-Social-Media">
           <a href="#" class="social vk">
-            <i class="fab fa-vk"></i>
+            <Icon icon="ri:vk-fill" />
           </a>
 
           <a href="#" class="social youtube">
-            <i class="fab fa-youtube"></i>
+            <Icon icon="ri:youtube-fill" />
           </a>
 
           <a href="#" class="social telegram">
-            <i class="fab fa-telegram-plane"></i>
+            <Icon icon="ri:telegram-fill" />
           </a>
         </div>
 
-        <a href="tel:+79826232617" class="Phone">
-          +7 (982) 623 26 17
-        </a>
+        <!-- Phone -->
+        <a href="tel:+79826232617" class="Phone"> +7 (982) 623 26 17 </a>
 
+        <!-- Burger -->
         <button class="Burger" @click="toggleMenu">
           <span></span>
           <span></span>
@@ -51,6 +57,7 @@ const toggleMenu = () => {
       </div>
     </div>
 
+    <!-- Mobile Menu -->
     <div class="MobileMenu" :class="{ active: isOpen }">
       <a href="#">BIM-контент</a>
       <a href="#">Сопровождение BIM проектов</a>

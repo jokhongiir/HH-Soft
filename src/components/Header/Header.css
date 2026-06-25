@@ -1,23 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-/* HEADER */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: #050505;
+}
+
+/* =========================
+HEADER
+========================= */
 
 .Header {
   position: sticky;
   top: 0;
-  left: 0;
+  z-index: 1000;
 
   width: 100%;
 
-  z-index: 1000;
-
-  background: rgba(8, 8, 10, 0.75);
+  background: rgba(7, 7, 10, 0.8);
 
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
-  transition: 0.4s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .Header::before {
@@ -29,7 +43,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(124, 58, 237, 0.08),
+    rgba(139, 92, 246, 0.08),
     transparent
   );
 
@@ -41,40 +55,39 @@
   width: 100%;
 
   margin: auto;
+  padding: 0 35px;
 
   height: 95px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 35px;
 }
 
-/* LOGO */
-
-.Header-Logo {
-  display: flex;
-  align-items: center;
-}
+/* =========================
+LOGO
+========================= */
 
 .Header-Logo img {
   width: 180px;
   display: block;
+
   cursor: pointer;
 
   transition:
-    transform 0.45s ease,
-    filter 0.45s ease;
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .Header-Logo img:hover {
   transform: scale(1.04);
 
-  filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.45));
+  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.45));
 }
 
-/* NAVBAR */
+/* =========================
+NAVBAR
+========================= */
 
 .Navbar {
   display: flex;
@@ -110,7 +123,7 @@
   width: 0;
   height: 2px;
 
-  border-radius: 50px;
+  border-radius: 20px;
 
   background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc);
 
@@ -124,24 +137,23 @@
   transform: translateY(-2px);
 }
 
-.Navbar a:hover::before,
-.Navbar .active::before {
+.Navbar a:hover::before {
   width: 100%;
 }
 
-.Navbar .active {
-  color: #a855f7;
-}
-
-/* RIGHT */
+/* =========================
+RIGHT SIDE
+========================= */
 
 .Header-Right {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
-/* SOCIAL */
+/* =========================
+SOCIAL ICONS
+========================= */
 
 .Header-Social-Media {
   display: flex;
@@ -151,6 +163,8 @@
 .social {
   width: 48px;
   height: 48px;
+
+  margin-left: -10px;
 
   border-radius: 50%;
 
@@ -162,11 +176,9 @@
 
   color: #fff;
 
-  margin-left: -10px;
-
   border: 1px solid rgba(255, 255, 255, 0.08);
 
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 
   transition:
     transform 0.35s ease,
@@ -183,7 +195,7 @@
 
   border-color: rgba(255, 255, 255, 0.2);
 
-  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.35);
 }
 
 .vk {
@@ -191,14 +203,16 @@
 }
 
 .youtube {
-  background: linear-gradient(135deg, #ff0000, #ff4b4b);
+  background: linear-gradient(135deg, #ff0000, #ff4444);
 }
 
 .telegram {
   background: linear-gradient(135deg, #229ed9, #39baf7);
 }
 
-/* PHONE */
+/* =========================
+PHONE
+========================= */
 
 .Phone {
   text-decoration: none;
@@ -218,7 +232,9 @@
   transform: translateY(-2px);
 }
 
-/* BURGER */
+/* =========================
+BURGER
+========================= */
 
 .Burger {
   display: none;
@@ -226,8 +242,8 @@
   width: 45px;
   height: 45px;
 
-  background: none;
   border: none;
+  background: none;
 
   cursor: pointer;
 }
@@ -247,11 +263,30 @@
   transition: 0.3s ease;
 }
 
-/* MOBILE MENU */
+/* =========================
+MOBILE MENU
+========================= */
 
 .MobileMenu {
   display: none;
 }
+
+.social svg {
+  font-size: 21px;
+  color: white;
+}
+
+.social:hover svg {
+  transform: scale(1.1);
+}
+
+.social svg {
+  transition: 0.3s ease;
+}
+
+/* =========================
+TABLET
+========================= */
 
 @media (max-width: 992px) {
   .Navbar {
@@ -269,10 +304,10 @@
   .MobileMenu {
     display: flex;
     flex-direction: column;
+
     gap: 18px;
 
     max-height: 0;
-
     overflow: hidden;
 
     background: rgba(8, 8, 10, 0.95);
@@ -304,10 +339,14 @@
   }
 }
 
+/* =========================
+MOBILE
+========================= */
+
 @media (max-width: 768px) {
   .Header-Container {
-    height: 85px;
     padding: 0 20px;
+    height: 85px;
   }
 
   .Header-Logo img {
@@ -321,15 +360,15 @@
 }
 
 @media (max-width: 576px) {
+  .Header-Container {
+    height: 80px;
+  }
+
   .Header-Logo img {
     width: 135px;
   }
 
   .Header-Social-Media {
     display: none;
-  }
-
-  .Header-Container {
-    height: 80px;
   }
 }
