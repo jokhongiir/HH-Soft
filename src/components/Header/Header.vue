@@ -1,13 +1,20 @@
 <script setup>
+import { ref } from "vue";
 import "./Header.css";
 import Logo from "../../assets/HH-Soft-Logo.png";
+
+const isOpen = ref(false);
+
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value;
+};
 </script>
 
 <template>
   <header class="Header">
     <div class="Header-Container">
       <div class="Header-Logo">
-        <img :src="Logo" alt="HH-Soft Logo" />
+        <img :src="Logo" alt="HH-Soft" />
       </div>
 
       <nav class="Navbar">
@@ -35,7 +42,20 @@ import Logo from "../../assets/HH-Soft-Logo.png";
         <a href="tel:+79826232617" class="Phone">
           +7 (982) 623 26 17
         </a>
+
+        <button class="Burger" @click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+    </div>
+
+    <div class="MobileMenu" :class="{ active: isOpen }">
+      <a href="#">BIM-контент</a>
+      <a href="#">Сопровождение BIM проектов</a>
+      <a href="#">Обучение</a>
+      <a href="#">Контакты</a>
     </div>
   </header>
 </template>

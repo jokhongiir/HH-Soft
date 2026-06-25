@@ -1,89 +1,147 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+/* HEADER */
 
 .Header {
-  width: 100%;
-  background: #000;
   position: sticky;
   top: 0;
+  left: 0;
+
+  width: 100%;
+
   z-index: 1000;
-  padding: 14px 0px;
+
+  background: rgba(8, 8, 10, 0.75);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition: 0.4s ease;
+}
+
+.Header::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(124, 58, 237, 0.08),
+    transparent
+  );
+
+  pointer-events: none;
 }
 
 .Header-Container {
   max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
+
+  margin: auto;
+
+  height: 95px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 0px;
+  padding: 0 35px;
+}
+
+/* LOGO */
+
+.Header-Logo {
+  display: flex;
+  align-items: center;
 }
 
 .Header-Logo img {
-  width: 170px;
-  object-fit: contain;
+  width: 180px;
+  display: block;
   cursor: pointer;
+
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
 }
+
+.Header-Logo img:hover {
+  transform: scale(1.04);
+
+  filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.45));
+}
+
+/* NAVBAR */
 
 .Navbar {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 45px;
 }
 
 .Navbar a {
-  text-decoration: none;
-  color: #d9d9d9;
-  font-size: 17px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-
   position: relative;
-  transition: 0.3s ease;
+
+  text-decoration: none;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.Navbar a::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -10px;
+
+  width: 0;
+  height: 2px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc);
+
+  transform: translateX(-50%);
+
+  transition: 0.35s ease;
 }
 
 .Navbar a:hover {
-  color: #7c3aed;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
-.Navbar a::after {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  bottom: -8px;
-
-  width: 0%;
-  height: 2px;
-
-  background: #7c3aed;
-  transition: 0.3s ease;
-}
-
-.Navbar a:hover::after {
+.Navbar a:hover::before,
+.Navbar .active::before {
   width: 100%;
 }
 
 .Navbar .active {
-  color: #7c3aed;
+  color: #a855f7;
 }
 
-.Navbar .active::after {
-  width: 100%;
-}
+/* RIGHT */
 
 .Header-Right {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 22px;
 }
+
+/* SOCIAL */
 
 .Header-Social-Media {
   display: flex;
@@ -91,8 +149,8 @@
 }
 
 .social {
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
 
   border-radius: 50%;
 
@@ -101,17 +159,31 @@
   justify-content: center;
 
   text-decoration: none;
-  color: white;
+
+  color: #fff;
 
   margin-left: -10px;
 
-  border: 3px solid #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  transition: 0.3s ease;
+  backdrop-filter: blur(15px);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.social i {
+  font-size: 18px;
 }
 
 .social:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.08);
+
+  border-color: rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.3);
 }
 
 .vk {
@@ -119,40 +191,66 @@
 }
 
 .youtube {
-  background: linear-gradient(135deg, #ff0000, #ff3c3c);
+  background: linear-gradient(135deg, #ff0000, #ff4b4b);
 }
 
 .telegram {
-  background: linear-gradient(135deg, #229ed9, #33b5f5);
+  background: linear-gradient(135deg, #229ed9, #39baf7);
 }
+
+/* PHONE */
 
 .Phone {
   text-decoration: none;
-  color: white;
 
-  font-size: 18px;
-  font-weight: 500;
-  font-family: "Montserrat", sans-serif;
+  color: #fff;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.Phone:hover {
+  color: #a855f7;
+  transform: translateY(-2px);
+}
+
+/* BURGER */
+
+.Burger {
+  display: none;
+
+  width: 45px;
+  height: 45px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+.Burger span {
+  display: block;
+
+  width: 28px;
+  height: 3px;
+
+  margin: 5px auto;
+
+  border-radius: 50px;
+
+  background: #fff;
 
   transition: 0.3s ease;
 }
 
-.Phone:hover {
-  color: #7c3aed;
-}
+/* MOBILE MENU */
 
-@media (max-width: 1200px) {
-  .Navbar {
-    gap: 30px;
-  }
-
-  .Navbar a {
-    font-size: 16px;
-  }
-
-  .Phone {
-    font-size: 17px;
-  }
+.MobileMenu {
+  display: none;
 }
 
 @media (max-width: 992px) {
@@ -160,30 +258,78 @@
     display: none;
   }
 
-  .Header-Container {
-    justify-content: space-between;
+  .Phone {
+    display: none;
   }
 
-  .Header-Logo img {
-    width: 220px;
+  .Burger {
+    display: block;
+  }
+
+  .MobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    background: rgba(8, 8, 10, 0.95);
+
+    backdrop-filter: blur(20px);
+
+    transition: 0.45s ease;
+  }
+
+  .MobileMenu.active {
+    max-height: 400px;
+    padding: 25px;
+  }
+
+  .MobileMenu a {
+    text-decoration: none;
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+  }
+
+  .MobileMenu a:hover {
+    color: #a855f7;
+    padding-left: 10px;
   }
 }
 
 @media (max-width: 768px) {
   .Header-Container {
+    height: 85px;
     padding: 0 20px;
   }
 
-  .social {
-    width: 45px;
-    height: 45px;
+  .Header-Logo img {
+    width: 150px;
   }
 
-  .Phone {
+  .social {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 576px) {
+  .Header-Logo img {
+    width: 135px;
+  }
+
+  .Header-Social-Media {
     display: none;
   }
 
-  .Header-Logo img {
-    width: 180px;
+  .Header-Container {
+    height: 80px;
   }
 }
