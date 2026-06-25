@@ -22,7 +22,6 @@ import "./Main1.css";
 
         <div class="Main1-Buttons">
           <button class="PrimaryBtn">Обсудить проект</button>
-
           <button class="SecondaryBtn">Выбрать курс</button>
         </div>
       </div>
@@ -55,6 +54,21 @@ import "./Main1.css";
           <!-- LAPTOP FRAME -->
           <img :src="laptop" alt="HH SOFT Laptop" class="LaptopFrame" />
         </div>
+      </div>
+    </div>
+
+    <!-- RUNNING TEXT (YUGURUVCHI SATR) -->
+    <div class="Ticker">
+      <div class="Ticker-Track">
+        <span>
+          BIM ТЕХНОЛОГИИ | КУРСЫ ПО ПРОДУКТАМ | AUTODESK | ПЛАГИНЫ REVIT | DYNAMO |
+        </span>
+        <span>
+          BIM ТЕХНОЛОГИИ | КУРСЫ ПО ПРОДУКТАМ | AUTODESK | ПЛАГИНЫ REVIT | DYNAMO |
+        </span>
+        <span>
+          BIM ТЕХНОЛОГИИ | КУРСЫ ПО ПРОДУКТАМ | AUTODESK | ПЛАГИНЫ REVIT | DYNAMO |
+        </span>
       </div>
     </div>
   </section>

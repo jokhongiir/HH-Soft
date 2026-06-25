@@ -26,6 +26,8 @@ body {
   min-height: 100vh;
   margin-top: -95px;
   padding-top: 95px;
+  /* Ticker uchun pastdan qo'shimcha joy (90px bo'lgani uchun) */
+  padding-bottom: 90px; 
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -39,43 +41,33 @@ body {
 
 #Main1::before {
   content: "";
-
   position: absolute;
   top: -250px;
   left: -250px;
-
   width: 550px;
   height: 550px;
-
   border-radius: 50%;
-
   background: radial-gradient(
     circle,
     rgba(139, 92, 246, 0.35),
     transparent 70%
   );
-
   filter: blur(120px);
 }
 
 #Main1::after {
   content: "";
-
   position: absolute;
   right: -250px;
   bottom: -250px;
-
   width: 500px;
   height: 500px;
-
   border-radius: 50%;
-
   background: radial-gradient(
     circle,
     rgba(59, 130, 246, 0.25),
     transparent 70%
   );
-
   filter: blur(120px);
 }
 
@@ -86,16 +78,12 @@ body {
 .Main1-Container {
   width: 100%;
   max-width: 1400px;
-
   margin: auto;
   padding: 90px 0px;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
   gap: 80px;
-
   position: relative;
   z-index: 10;
 }
@@ -110,25 +98,18 @@ body {
 
 .Main1-Content h1 {
   color: #fff;
-
   font-size: clamp(42px, 5vw, 60px);
-
   font-weight: 800;
   line-height: 1.05;
-
   letter-spacing: -2px;
-
   margin-bottom: 24px;
 }
 
 .Main1-Content p {
   color: rgba(255, 255, 255, 0.75);
-
   font-size: 18px;
   line-height: 1.9;
-
   margin-bottom: 40px;
-
   max-width: 520px;
 }
 
@@ -146,48 +127,36 @@ body {
 .SecondaryBtn {
   height: 60px;
   padding: 0 34px;
-
   border: none;
   outline: none;
-
   cursor: pointer;
-
   border-radius: 16px;
-
   font-family: "Manrope";
   font-size: 15px;
   font-weight: 700;
-
   transition: 0.35s;
 }
 
 .PrimaryBtn {
   color: white;
-
   background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-
   box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
 }
 
 .PrimaryBtn:hover {
   transform: translateY(-6px);
-
   box-shadow: 0 25px 50px rgba(139, 92, 246, 0.55);
 }
 
 .SecondaryBtn {
   color: white;
-
   background: rgba(255, 255, 255, 0.08);
-
   border: 1px solid rgba(255, 255, 255, 0.1);
-
   backdrop-filter: blur(20px);
 }
 
 .SecondaryBtn:hover {
   transform: translateY(-6px);
-
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -197,9 +166,7 @@ body {
 
 .Main1-Image {
   position: relative;
-
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,14 +178,10 @@ body {
 
 .LaptopWrapper {
   position: relative;
-
   width: 100%;
   max-width: 900px;
-
   animation: float 6s ease-in-out infinite;
-
   transition: 0.4s ease;
-
   z-index: 20;
 }
 
@@ -229,10 +192,8 @@ body {
 .LaptopFrame {
   width: 100%;
   display: block;
-
   position: relative;
   z-index: 5;
-
   filter: drop-shadow(0 35px 90px rgba(0, 0, 0, 0.65));
 }
 
@@ -242,23 +203,15 @@ body {
 
 .LaptopVideo {
   position: absolute;
-
   top: 6.2%;
   left: 10%;
-
   width: 80%;
   height: 85%;
-
   border: none;
-
   border-radius: 10px;
-
   background: #000;
-
   overflow: hidden;
-
   z-index: 2;
-
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.45);
 }
 
@@ -275,36 +228,27 @@ body {
 .Glow1 {
   width: 220px;
   height: 220px;
-
   background: #8b5cf6;
-
   top: 0;
   left: 0;
-
   opacity: 0.65;
 }
 
 .Glow2 {
   width: 180px;
   height: 180px;
-
   background: #3b82f6;
-
   right: 20px;
   bottom: 60px;
-
   opacity: 0.6;
 }
 
 .Glow3 {
   width: 120px;
   height: 120px;
-
   background: #d946ef;
-
   top: 40px;
   right: 120px;
-
   opacity: 0.6;
 }
 
@@ -313,21 +257,87 @@ body {
 ========================= */
 
 @keyframes float {
-  0% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
 
-  50% {
-    transform: translateY(-18px);
-  }
+/* ===================================
+ PREMIUM FULL WIDTH TICKER (YANGI)
+=================================== */
 
-  100% {
-    transform: translateY(0);
-  }
+.Ticker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    #6d28d9,
+    #2563eb,
+    #8b5cf6,
+    #2563eb
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  z-index: 100;
+  border-top: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(30px);
+}
+
+.Ticker::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.15),
+    transparent
+  );
+  animation: shine 4s linear infinite;
+}
+
+.Ticker-Track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+.Ticker-Track span {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 70px;
+  text-shadow: 0 0 15px rgba(255,255,255,.35);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
 }
 
 /* =========================
-RESPONSIVE
+ RESPONSIVE
 ========================= */
 
 @media (max-width: 1100px) {
@@ -335,7 +345,6 @@ RESPONSIVE
     gap: 50px;
     padding: 90px 25px;
   }
-
   .Main1-Content h1 {
     font-size: 52px;
   }
@@ -347,27 +356,22 @@ RESPONSIVE
     gap: 60px;
     padding: 80px 25px;
   }
-
   .Main1-Content {
     max-width: 100%;
     text-align: center;
   }
-
   .Main1-Content p {
     margin-bottom: 30px;
     max-width: 100%;
   }
-
   .Main1-Buttons {
     justify-content: center;
     width: 100%;
   }
-
   .PrimaryBtn,
   .SecondaryBtn {
     min-width: 220px;
   }
-
   .LaptopWrapper {
     max-width: 750px;
     width: 100%;
@@ -375,31 +379,37 @@ RESPONSIVE
 }
 
 @media (max-width: 768px) {
+  #Main1 {
+    padding-bottom: 65px; /* Kichik ekranda ticker balandligiga moslash */
+  }
   .Main1-Container {
     padding: 70px 20px;
   }
-
   .Main1-Content h1 {
     font-size: clamp(34px, 7vw, 48px);
     line-height: 1.1;
   }
-
   .Main1-Content p {
     font-size: 16px;
     line-height: 1.8;
   }
-
   .PrimaryBtn,
   .SecondaryBtn {
     height: 58px;
     padding: 0 28px;
   }
-
   .LaptopVideo {
     top: 6.1%;
     left: 10%;
     width: 80%;
     height: 84%;
+  }
+  .Ticker {
+    height: 65px;
+  }
+  .Ticker-Track span {
+    font-size: 15px;
+    margin-right: 40px;
   }
 }
 
@@ -408,34 +418,28 @@ RESPONSIVE
     padding: 60px 18px;
     gap: 45px;
   }
-
   .Main1-Content {
     text-align: left;
   }
-
   .Main1-Content h1 {
     font-size: 30px;
     letter-spacing: -1px;
   }
-
   .Main1-Content p {
     font-size: 15px;
     line-height: 1.7;
   }
-
   .Main1-Buttons {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
   }
-
   .PrimaryBtn,
   .SecondaryBtn {
     width: 100%;
     max-width: 100%;
     height: 56px;
   }
-
   .LaptopVideo {
     top: 6%;
     left: 10%;
@@ -449,11 +453,9 @@ RESPONSIVE
   .Main1-Content h1 {
     font-size: 26px;
   }
-
   .Main1-Content p {
     font-size: 14px;
   }
-
   .PrimaryBtn,
   .SecondaryBtn {
     font-size: 14px;
